@@ -75,7 +75,15 @@
                                 <items>
                                     <barButtonItem systemItem="compose" id="5VN-dS-5WK">
                                         <connections>
+                                            <action selector="deleteMemo:" destination="Lhr-vX-im7" id="VYv-YK-Lby"/>
                                             <segue destination="MG4-CZ-PE1" kind="presentation" id="qG7-g3-YeA"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="CSw-LL-bd3"/>
+                                    <barButtonItem title="Item" systemItem="trash" id="ch2-qz-uNX">
+                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                        <connections>
+                                            <action selector="deleteMemo:" destination="Lhr-vX-im7" id="VpE-aF-wes"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -235,6 +243,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
