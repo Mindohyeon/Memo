@@ -10,6 +10,7 @@ import UIKit
 class ComposeViewController: UIViewController {
     
     var editTarget : Memo?
+    var originalContent : String?
     
     @IBOutlet weak var memoTextView: UITextView!
     
@@ -18,13 +19,30 @@ class ComposeViewController: UIViewController {
         if let memo = editTarget {
             navigationItem.title = "메모 편집"
             memoTextView.text = memo.content
+            originalContent = memo.content
         } else {
             navigationItem.title = "새 메모"
             memoTextView.text = ""
         }
 
-        // Do any additional setup after loading the view.
+        memoTextView.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.presentationController?.delegate= self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.presentationController?.delegate = nil
+    }
+    
+    
+    
+    
     
     @IBAction func close(_ sender: Any) {
         dismiss(animated: true, completion: nil)
