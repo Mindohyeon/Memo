@@ -11,13 +11,15 @@ import CoreData
 class DataManager {
     
     static let shared = DataManager()
-    
-    private init() {
-        
-    }
+    //singleton
+//    private init() {
+//
+//    }
     
     var mainContext : NSManagedObjectContext {
+        
         return persistentContainer.viewContext
+        
     }
     
     var memoList = [Memo] ()
@@ -34,7 +36,6 @@ class DataManager {
         } catch {
             print(error)
         }
-
         
     }
     
@@ -48,8 +49,12 @@ class DataManager {
         saveContext()
     }
     
-    
-    
+    func deleteMemo(_ memo : Memo?) {
+        if let memo = memo {
+            mainContext.delete(memo)
+            saveContext()
+        }
+    }
     
     // MARK: - Core Data stack
 
